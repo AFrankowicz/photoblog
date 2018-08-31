@@ -1,0 +1,115 @@
+body{
+    /* background-color: #E4EDF7; */
+ }
+
+.navbar-nav {
+  flex-direction: row;
+}
+
+
+ul { display: inline-block; }
+
+.nav-item {
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.lined {
+  border-right: solid 1px #cccccc;
+}
+
+ .web-content {
+   margin-top: 7%;
+ }
+
+.register-card {
+  margin-left: 20vw;
+  min-width: 45vw;
+  margin-bottom: 10vw;
+}
+
+.publish-image-miniature {
+  max-width: 40vw;
+}
+
+.comment-card {
+  width: 100%
+}
+
+.publish-card {
+  margin-left: 10vw;
+  min-width: 60vw;
+  margin-bottom: 10vw;
+}
+
+
+.login-card {
+  margin-left: 22vw;
+  min-width: 35vw;
+}
+
+.start-publishing-info {
+  padding-top: 30%;
+  min-width: 35vw;
+}
+
+.card {
+  display:inline-block;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.jumbotron {
+  background-color: #C1CBD6
+}
+
+.sidebar {
+    height: 100%;
+    width: 22vw;
+    position: fixed;
+    z-index: 1;
+    left: 5vw;
+    overflow-x: hidden;
+}
+
+.sidebar-card {
+  max-width: 20vw;
+}
+
+.gallery {
+  margin-left: 22vw;
+}
+
+.user-info{
+  padding-top: 50px;
+}
+
+.board-img{
+    width:100%;
+    max-width: 30vw;
+}
+
+.post-img{
+  max-width: 80vw;
+  margin: 10px;
+}
+
+.board-avatar{
+    max-width: 30px;
+}
+
+.register-avatar{
+    max-width: 100px;
+}
+
+.avatar{
+    max-width: 50px;
+}
+
+.F:before {
+  content: "\f221";
+}
+
+.M:before {
+  content: "\f222";
+}

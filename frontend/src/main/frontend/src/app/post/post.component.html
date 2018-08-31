@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <img class="post-img" src="data:image/jpeg;base64,{{post.content}}" alt="{{ post.title }}">
+  </div>
+  <div class="jumbotron">
+    <h2>{{ post.title }}</h2>
+    <h4>
+      <img class="avatar rounded-circle" src="data:image/jpeg;base64,{{post.publishedBy.avatar}}" alt="{{ post.publishedBy.username}}">
+      <a [routerLink]="['/user', post.publishedBy.username]">{{ post.publishedBy.username }}</a>
+    </h4>
+    <small class="text-muted"><i class="fa fa-updated"></i> created on: {{ post.createdOn | date:'dd-MM-yyyy'}}</small>
+    <hr>
+    <p>{{ post.description }}</p>
+  </div>
+
+  <div class="card comment-card" *ngFor="let comment of comments">
+    <div class="card-body">
+      <h6 class="card-title"> <img class="board-avatar rounded-circle" src="data:image/jpeg;base64,{{comment.publishedBy.avatar}}" alt="{{ post.publishedBy.username}}">
+        {{ comment.publishedBy.username }} <small class="float-right"> on {{ comment.createdOn | date:'dd-MM-yyyy HH:mm:ss'}}</small>
+      </h6>
+      <hr>
+        <p class="card-text">{{ comment.text }}</p>
+      <hr>
+      <div *ngIf="isCurrentLoggedUser(comment.publishedBy.username)">
+        <button class="btn btn-primary" (click)="deleteComment(comment.id)">Delete comment</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card comment-card">
+    <div class="card-body">
+      <form #commentForm="ngForm" (ngSubmit)="addComment()">
+        <div class="form-group">
+          <label for="comment">Add Comment</label>
+          <textarea class="form-control" id="comment" [(ngModel)]="newComment.text" name="comment" rows="3" required></textarea>
+        </div>
+        <hr>
+        <span class="float-right">
+          <button type="submit" class="btn btn-primary">Add</button>
+        </span>
+        <div *ngIf="commentError">
+          <p class="text-danger"> <i class="fa fa-exclamation-circle"></i>  {{ errorMessage }} </p>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>

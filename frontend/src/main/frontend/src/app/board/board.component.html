@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="card-columns" >
+    <div *ngFor="let post of posts">
+        <div class="card" >
+            <div class="card-title">
+              <h6 class="card-subtitle mb-2 text-muted">
+                <img class="board-avatar rounded-circle" src="data:image/jpeg;base64,{{post.publishedBy.avatar}}" alt="{{ post.publishedBy.username}}">
+                <a [routerLink]="['/user', post.publishedBy.username]">{{ post.publishedBy.username }}</a>
+              </h6>
+            </div>
+            <img class="card-img-top board-img" src="data:image/jpeg;base64,{{post.content}}" alt="{{ post.title }}">
+            <div class="card-body">
+              <a [routerLink]="['/post', post.id]"><h5 class="card-title"> {{ post.title }} </h5></a>
+              <p class="card-text">{{ post.description }}</p>
+            </div>
+            <hr>
+            <div class="float-right">
+              <small class="text-muted"><i class="fa fa-history"></i> on: {{ post.createdOn | date:'dd-MM-yyyy'}}</small>
+            </div>
+        </div>
+  </div>
+</div>

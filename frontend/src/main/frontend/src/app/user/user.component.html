@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="sidebar">
+    <div class="card sidebar-card">
+      <img class="card-img-top board-img rounded-circle" src="data:image/jpeg;base64,{{user.avatar}}" alt="{{user.username}}">
+      <div class="card-body user-info text-center">
+        <h5 class="card-title">{{user.username}}</h5>
+        <p class="card-text">{{user.bio}}</p>
+        <hr>
+        <p>{{user.name}} {{user.surname}} <i class="fa {{user.sex}}"></i> , {{age}}</p>
+        <p>Member since: {{user.joinedOn | date:'dd-MM-yyyy'}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="gallery" *ngIf="!galleryEmpty">
+    <app-board [posts]="posts"></app-board>
+  </div>
+
+  <div class="gallery" *ngIf="galleryEmpty">
+    <div class="container">
+      <div class="start-publishing-info text-center">
+          <p>Start publishing your pictures!</p>
+          <hr>
+          <a class="btn btn-primary" [routerLink]="['/publish']">Publish</a>
+      </div>
+    </div>
+  </div>
+</div>

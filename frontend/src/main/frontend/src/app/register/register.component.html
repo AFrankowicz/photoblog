@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="card register-card">
+    <form class="text-center" #registerForm="ngForm" (ngSubmit)="register()">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" [(ngModel)]="user.username" name="username" required>
+      </div>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" [(ngModel)]="user.name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="surname">Surname</label>
+        <input type="text" class="form-control" id="surname" [(ngModel)]="user.surname" name="surname" required>
+      </div>
+      <img class="register-avatar rounded-circle" src="data:image/jpeg;base64,{{user.avatar}}">
+      <div class="form-group">
+        <label for="avatar">Avatar</label>
+        <input class="form-control" type="file" id="avatar" (change)="onFileChange($event)" name="avatar" required>
+      </div>
+      <div class="form-group">
+        <label for="sex">Sex</label>
+        <select class="form-control" id="sex" [(ngModel)]="user.sex" name="sex" required>
+          <option>F</option>
+          <option>M</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="born">Birth date</label>
+        <input type="date" class="form-control" id="born" [(ngModel)]="user.born" name="born" required>
+      </div>
+      <div class="form-group">
+        <label for="bio">Bio</label>
+        <textarea class="form-control" id="username" [(ngModel)]="user.bio" name="bio" rows="3" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" [(ngModel)]="user.password" name="password" required>
+      </div>
+      <div class="form-group">
+        <label for="passwordConfirm">Confirm Password</label>
+        <input type="password" class="form-control" id="passwordConfirm" [(ngModel)]="confirmPassword" name="passwordConfirm" required>
+      </div>
+      <hr>
+      <button type="submit" class="btn btn-primary">Register</button>
+      <div *ngIf="registerError">
+        <p class="text-danger"> <i class="fa fa-exclamation-circle"></i>  {{ errorMessage }} </p>
+      </div>
+    </form>
+  </div>
+</div>

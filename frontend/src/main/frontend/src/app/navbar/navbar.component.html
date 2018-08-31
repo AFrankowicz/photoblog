@@ -1,0 +1,31 @@
+<nav class="navbar navbar-toggleable-sm  fixed-top navbar-light bg-faded">
+    <div class='container'>
+        <ul class="nav navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Browse</a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav ml-auto" *ngIf="!authService.loggedIn">
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/register']">Sign up</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/login']">Log in</a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav ml-auto" *ngIf="authService.loggedIn">
+            <li class="nav-item">
+              <img class="board-avatar rounded-circle" src="data:image/jpeg;base64,{{authService.loggedUser.avatar}}" alt="{{ authService.loggedUser.username}}">
+            </li>
+            <li class="nav-item lined">
+              <a class="nav-link" [routerLink]="['/user', authService.loggedUser.username]">{{ authService.loggedUser.username }}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"  role="button" [routerLink]="['/publish']">Publish</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"  role="button" (click)="logout()">Log out</a>
+            </li>
+          </ul>
+    </div>
+</nav>
